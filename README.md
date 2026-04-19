@@ -11,6 +11,7 @@ cd agritrack-api
 
 ### 2. Créer un environnement virtuel
 python -m venv venv
+
 venv\Scripts\activate
 
 ### 3. 🗂️ Installer les dépendances
