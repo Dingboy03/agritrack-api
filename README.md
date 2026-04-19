@@ -91,3 +91,9 @@ SQLite - Base de données
 Pytest - Tests unitaires
 
 Uvicorn - Serveur ASGI
+
+# 👥 Équipe
+
+Développeur : @DjamelSteephen
+
+Projet : Agri-Track - Traçabilité agricole
