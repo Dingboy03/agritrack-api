@@ -40,9 +40,13 @@ Swagger UI : http://localhost:8000/docs
 ### 7.🧪 Tester l'API
 
 .Aller sur http://localhost:8000/docs
+
 .Clique sur POST /api/recoltes
+
 .Clique sur "Try it out"
+
 .Remplis le formulaire
+
 .Exécute
 
 ### 8.🧪 Lancer les tests
@@ -50,6 +54,7 @@ Swagger UI : http://localhost:8000/docs
 pytest tests/test_recoltes.py -v
 
 Résultat attendu :
+
 #tests/test_recoltes.py::test_creer_recolte_succes PASSED
 #tests/test_recoltes.py::test_creer_recolte_poids_zero PASSED
 #tests/test_recoltes.py::test_creer_recolte_produit_invalide PASSED
