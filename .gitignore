@@ -63,3 +63,7 @@ logs/
 # Fichiers de configuration locaux
 .env
 .env.local
+
+# OS
+Thumbs.db
+Desktop.ini
