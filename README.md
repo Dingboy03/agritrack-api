@@ -4,7 +4,7 @@ API de traçabilité agricole pour l'enregistrement des récoltes (coton, mangue
 
 ## 🚀 Installation
 
-### 1. Cloner le projet
+### 1. ✅ Cloner le projet
 git clone https://github.com/Dingboy03/agritrack-api.git
 
 cd agritrack-api
@@ -13,10 +13,10 @@ cd agritrack-api
 python -m venv venv
 venv\Scripts\activate
 
-### 3. Installer les dépendances
+### 3. 🗂️ Installer les dépendances
 pip install -r requirements.txt
 
-### 4. Initialiser la base de données
+### 4. 🎯 Initialiser la base de données
 python init_db.py
 
 Cela va créer :
@@ -27,7 +27,7 @@ Cela va créer :
 
 ✅ Les tables nécessaires
 
-### 5. Lancer l'API
+### 5. 📚 Lancer l'API
 uvicorn app.main:app --reload
 
 ### 6.📚 Documentation interactive
@@ -49,7 +49,7 @@ Swagger UI : http://localhost:8000/docs
 
 .Exécute
 
-### 8.🧪 Lancer les tests
+### 8.📝 Lancer les tests
 
 pytest tests/test_recoltes.py -v
 
