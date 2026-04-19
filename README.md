@@ -21,7 +21,9 @@ python init_db.py
 
 Cela va créer :
 ✅ 3 agriculteurs de test
+
 ✅ 2 entrepôts de test
+
 ✅ Les tables nécessaires
 
 ### 5. Lancer l'API
@@ -30,8 +32,9 @@ uvicorn app.main:app --reload
 ### 6.📚 Documentation interactive
 
 Une fois l'API lancée, accède à :
+
 Swagger UI : http://localhost:8000/docs
-ReDoc : http://localhost:8000/redoc
+
 
 ### 7.🧪 Tester l'API
 
@@ -55,20 +58,29 @@ Résultat attendu :
 #Agriculteurs (après init_db.py)
 
 ID	Nom	Coopérative	Téléphone
+
 1	Amadou Diallo	Coopérative Nord	70123456
+
 2	Fatoumata Sanou	Coopérative Sud	70234567
+
 3	Ibrahim Traoré	Coopérative Est	70345678
 
 #Entrepôts
 
 ID	Lieu	Capacité max (kg)
+
 1	Entrepôt Principal Ouagadougou	10000
+
 2	Entrepôt Secondaire Bobo-Dioulasso	7500
 
 ### 10.📦 Technologies utilisées
 
 FastAPI - Framework web
+
 SQLAlchemy - ORM
+
 SQLite - Base de données
+
 Pytest - Tests unitaires
+
 Uvicorn - Serveur ASGI
