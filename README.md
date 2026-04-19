@@ -6,6 +6,7 @@ API de traçabilité agricole pour l'enregistrement des récoltes (coton, mangue
 
 ### 1. Cloner le projet
 git clone https://github.com/Dingboy03/agritrack-api.git
+
 cd agritrack-api
 
 2. Créer un environnement virtuel
@@ -27,11 +28,13 @@ Cela va créer :
 uvicorn app.main:app --reload
 
 6.📚 Documentation interactive
+
 Une fois l'API lancée, accède à :
 Swagger UI : http://localhost:8000/docs
 ReDoc : http://localhost:8000/redoc
 
 7.🧪 Tester l'API
+
 .Aller sur http://localhost:8000/docs
 .Clique sur POST /api/recoltes
 .Clique sur "Try it out"
@@ -39,6 +42,7 @@ ReDoc : http://localhost:8000/redoc
 .Exécute
 
 8.🧪 Lancer les tests
+
 pytest tests/test_recoltes.py -v
 Résultat attendu :
 #tests/test_recoltes.py::test_creer_recolte_succes PASSED
@@ -47,11 +51,13 @@ Résultat attendu :
 #tests/test_recoltes.py::test_creer_recolte_poids_negatif PASSED
 
 9.📋 Données de test disponibles
+
 #Agriculteurs (après init_db.py)
 ID	Nom	Coopérative	Téléphone
 1	Amadou Diallo	Coopérative Nord	70123456
 2	Fatoumata Sanou	Coopérative Sud	70234567
 3	Ibrahim Traoré	Coopérative Est	70345678
+
 #Entrepôts
 ID	Lieu	Capacité max (kg)
 1	Entrepôt Principal Ouagadougou	10000
