@@ -20,6 +20,7 @@ pip install -r requirements.txt
 python init_db.py
 
 Cela va créer :
+
 ✅ 3 agriculteurs de test
 
 ✅ 2 entrepôts de test
@@ -47,6 +48,7 @@ Swagger UI : http://localhost:8000/docs
 ### 8.🧪 Lancer les tests
 
 pytest tests/test_recoltes.py -v
+
 Résultat attendu :
 #tests/test_recoltes.py::test_creer_recolte_succes PASSED
 #tests/test_recoltes.py::test_creer_recolte_poids_zero PASSED
