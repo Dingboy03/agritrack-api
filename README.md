@@ -58,6 +58,7 @@ ID	Lieu	Capacité max (kg)
 2	Entrepôt Secondaire Bobo-Dioulasso	7500
 
 10.📦 Technologies utilisées
+
 FastAPI - Framework web
 SQLAlchemy - ORM
 SQLite - Base de données
