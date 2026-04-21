@@ -22,6 +22,9 @@ jobs:
       - name: Installer les dépendances
         run: pip install -r requirements.txt
 
+      - name: Installer Flake8
+        run: pip install flake8
+
       - name: Linter — Flake8
         run: flake8 . --max-line-length=88 --exclude=venv,__pycache__,.github
 
