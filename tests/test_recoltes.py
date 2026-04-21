@@ -1,7 +1,3 @@
-from fastapi.testclient import TestClient
-from app.main import app
-
-
 def test_creer_recolte_succes(client, db_session):
     response = client.post("/api/recoltes", json={
         "type_produit": "coton",
