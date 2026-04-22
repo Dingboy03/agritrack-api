@@ -1,0 +1,32 @@
+name: Lint et Tests Automatiques
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ feature/api-enregistrement ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install flake8 pytest
+    
+    - name: Lint with flake8
+      run: |
+        flake8 app/ tests/ --max-line-length=88 --count
+    
+    - name: Test with pytest
+      run: |
+        pytest tests/ -v
