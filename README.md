@@ -50,7 +50,7 @@ uvicorn main:app --reload
 
 
 
-## 🚀 Utilisation & Exemples
+## Utilisation & Exemples
 
 ### Enregistrer une récolte
 
@@ -100,7 +100,7 @@ curl http://127.0.0.1:8000/entrepots/2/stock
 
 
 
-## 🧪 Lancer les tests
+## Lancer les tests
 
 ```bash
 pytest tests/
@@ -141,14 +141,6 @@ git checkout -b feature/nom-de-la-feature
 | Djamel | Développeur 1 — Feature enregistrement |
 | Abdoulfatah | Développeur 2 — Feature stock & Tests |
 
-
-##  Équipe
-
-| Membre | Rôle |
-|---|---|
-| Azania | Scrum Master |
-| Djamel | Développeur 1 — Feature enregistrement |
-| Abdoulfatah | Développeur 2 — Feature stock & Tests |
 
 ##  Licence
 
