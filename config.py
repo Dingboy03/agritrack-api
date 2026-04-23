@@ -1,0 +1,1 @@
+PRODUITS_AUTORISES = ["coton", "mangue"]
