@@ -9,55 +9,23 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        pip install flake8 pytest
-    
-    - name: Lint with flake8
-      run: |
-        flake8 app/ tests/ --max-line-length=88 --count
-    
-    - name: Test with pytest
-      run: |
-        pytest tests/ -v
-name: CI Pipeline — Agri-Track
-
-on:
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  lint-and-test:
-    name: Lint et Tests Automatiques
-    runs-on: ubuntu-latest
 
     steps:
-      - name: Récupérer le code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Installer Python 3.11
-        uses: actions/setup-python@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
-      - name: Installer les dépendances
-        run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8 pytest
 
-      - name: Installer Flake8
-        run: pip install flake8
+      - name: Lint with flake8
+        run: flake8 app/ tests/ --max-line-length=88 --count --statistics
 
-      - name: Linter — Flake8
-        run: flake8 . --max-line-length=120 --exclude=venv,__pycache__,.github,init_db.py --extend-ignore=W291,W292,W293,E302,E305,E402,F401
-      - name: Tests — Pytest
+      - name: Test with pytest
         run: pytest tests/ -v
