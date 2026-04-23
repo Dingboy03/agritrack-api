@@ -93,8 +93,14 @@ Pytest - Tests unitaires
 
 Uvicorn - Serveur ASGI
 
-# 👥 Équipe
+##  Équipe
 
-Développeur : @DjamelSteephen
+| Membre | Rôle |
+|---|---|
+| Azania | Scrum Master |
+| Djamel | Développeur 1 — Feature enregistrement |
+| Abdoulfatah | Développeur 2 — Feature stock & Tests |
 
-Projet : Agri-Track - Traçabilité agricole
+##  Licence
+
+Ce projet est sous licence [MIT](LICENSE).
