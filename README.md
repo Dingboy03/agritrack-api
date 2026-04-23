@@ -153,7 +153,3 @@ git checkout -b feature/nom-de-la-feature
 ##  Licence
 
 Ce projet est sous licence [MIT](LICENSE).
-
-##  Licence
-
-Ce projet est sous licence [MIT](LICENSE).
