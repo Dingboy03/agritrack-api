@@ -1,97 +1,137 @@
 # 🌾 Agri-Track API
 
-API de traçabilité agricole pour l'enregistrement des récoltes (coton, mangues, karité) au Burkina Faso.
+![CI](https://github.com/Dingboy03/agritrack-api/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## 🚀 Installation
+> API de traçabilité agricole des récoltes (coton, mangues, karité)
+> depuis le champ de l'agriculteur jusqu'à l'entrepôt d'exportation — Burkina Faso.
 
-### 1. ✅ Cloner le projet
+
+
+## 📌 Description & Contexte
+
+Agri-Track est une API backend conçue pour les coopératives agricoles
+du Burkina Faso. Elle permet d'enregistrer chaque récolte à la sortie
+du champ et de suivre les stocks en entrepôt en temps réel.
+Le système garantit l'intégrité des données : validation des poids,
+contrôle des types de produits autorisés, et traçabilité complète
+de l'agriculteur jusqu'à l'entrepôt d'exportation.
+
+
+
+##  Prérequis & Installation
+
+**Versions requises :**
+- Python 3.11+
+- pip 23+
+
+**Installation pas à pas :**
+
+```bash
+# 1. Cloner le dépôt
 git clone https://github.com/Dingboy03/agritrack-api.git
-
 cd agritrack-api
 
-### 2. Créer un environnement virtuel
+# 2. Créer un environnement virtuel
 python -m venv venv
+source venv/bin/activate
+# Windows : venv\Scripts\activate
 
-venv\Scripts\activate
-
-### 3. 🗂️ Installer les dépendances
+# 3. Installer les dépendances
 pip install -r requirements.txt
 
-### 4. 🎯 Initialiser la base de données
-python init_db.py
+# 4. Lancer l'API
+uvicorn main:app --reload
+```
 
-Cela va créer :
-
-✅ 3 agriculteurs de test
-
-✅ 2 entrepôts de test
-
-✅ Les tables nécessaires
-
-### 5. 📚 Lancer l'API
-uvicorn app.main:app --reload
-
-### 6.📚 Documentation interactive
-
-Une fois l'API lancée, accède à :
-
-Swagger UI : http://localhost:8000/docs
+- API disponible sur : `http://127.0.0.1:8000`
+- Documentation interactive : `http://127.0.0.1:8000/docs`
 
 
-### 7.🧪 Tester l'API
 
-.Aller sur http://localhost:8000/docs
+## 🚀 Utilisation & Exemples
 
-.Clique sur POST /api/recoltes
+### Enregistrer une récolte
 
-.Clique sur "Try it out"
+```bash
+curl -X POST http://127.0.0.1:8000/recoltes \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type_produit": "coton",
+    "poids_kg": 150.5,
+    "date": "2026-04-17",
+    "id_agriculteur": 1,
+    "id_entrepot": 2
+  }'
+```
 
-.Remplis le formulaire
+**Réponse (201) :**
+```json
+{
+  "message": "Récolte enregistrée avec succès",
+  "id": 1
+}
+```
 
-.Exécute
+### Consulter le stock d'un entrepôt
 
-### 8.📝 Lancer les tests
+```bash
+curl http://127.0.0.1:8000/entrepots/2/stock
+```
 
-pytest tests/test_recoltes.py -v
+**Réponse (200) :**
+```json
+{
+  "entrepot_id": 2,
+  "nom": "Entrepôt Bobo-Dioulasso",
+  "stock_total_kg": 450.5,
+  "capacite_max_kg": 15000
+}
+```
 
-Résultat attendu :
+### Codes d'erreur
 
-#tests/test_recoltes.py::test_creer_recolte_succes PASSED
-#tests/test_recoltes.py::test_creer_recolte_poids_zero PASSED
-#tests/test_recoltes.py::test_creer_recolte_produit_invalide PASSED
-#tests/test_recoltes.py::test_creer_recolte_poids_negatif PASSED
+| Code | Cause |
+|---|---|
+| 400 | Poids négatif ou nul |
+| 400 | Produit hors liste (coton / mangue / karité) |
+| 404 | Entrepôt introuvable |
 
-### 9.📋 Données de test disponibles
 
-#Agriculteurs (après init_db.py)
 
-ID	Nom	Coopérative	Téléphone
+## 🧪 Lancer les tests
 
-1	Amadou Diallo	Coopérative Nord	70123456
+```bash
+pytest tests/
+```
 
-2	Fatoumata Sanou	Coopérative Sud	70234567
 
-3	Ibrahim Traoré	Coopérative Est	70345678
 
-#Entrepôts
+##  Guide de Contribution
 
-ID	Lieu	Capacité max (kg)
+1. Ne jamais coder directement sur `main`
+2. Créer une branche de feature :
+```bash
+git checkout -b feature/nom-de-la-feature
+```
+3. Respecter la convention de nommage des commits :
 
-1	Entrepôt Principal Ouagadougou	10000
+| Type | Usage |
+|---|---|
+| `feat` | Nouvelle fonctionnalité |
+| `fix` | Correction de bug |
+| `test` | Ajout ou modification de tests |
+| `docs` | Documentation |
+| `ci` | Fichiers GitHub Actions / pipeline |
 
-2	Entrepôt Secondaire Bobo-Dioulasso	7500
+**Exemple :** `feat(recoltes): ajouter la route POST /recoltes`
 
-### 10.📦 Technologies utilisées
+4. Pousser la branche et ouvrir une Pull Request vers `main`
+5. Attendre l'approbation d'au moins 1 membre de l'équipe
+6. Le pipeline CI doit être  vert avant tout merge
 
-FastAPI - Framework web
 
-SQLAlchemy - ORM
-
-SQLite - Base de données
-
-Pytest - Tests unitaires
-
-Uvicorn - Serveur ASGI
 
 ##  Équipe
 
@@ -100,6 +140,19 @@ Uvicorn - Serveur ASGI
 | Azania | Scrum Master |
 | Djamel | Développeur 1 — Feature enregistrement |
 | Abdoulfatah | Développeur 2 — Feature stock & Tests |
+
+
+##  Équipe
+
+| Membre | Rôle |
+|---|---|
+| Azania | Scrum Master |
+| Djamel | Développeur 1 — Feature enregistrement |
+| Abdoulfatah | Développeur 2 — Feature stock & Tests |
+
+##  Licence
+
+Ce projet est sous licence [MIT](LICENSE).
 
 ##  Licence
 
