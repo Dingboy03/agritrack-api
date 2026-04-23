@@ -80,18 +80,6 @@ def test_creer_recolte_produit_invalide(client, db_session):
     
     assert response.status_code == 400
 
-def test_creer_recolte_poids_negatif(client, db_session):
-    response = client.post("/api/recoltes", json={
-        "type_produit": "karité",
-        "poids_kg": -50,
-        "date": "2025-03-15",
-        "id_agriculteur": db_session["agriculteur_id"],
-        "id_entrepot": db_session["entrepot_id"]
-    })
-    
-    assert response.status_code == 400
-    
-
 # Test A — Poids négatif → HTTP 400
 def test_creer_recolte_poids_negatif(client, db_session):
     response = client.post("/api/recoltes", json={
