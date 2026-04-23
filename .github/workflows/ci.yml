@@ -1,0 +1,31 @@
+name: CI Pipeline — Agri-Track
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-test:
+    name: Lint et Tests Automatiques
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v3
+
+      - name: Installer Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Installer Flake8
+        run: pip install flake8
+
+      - name: Linter — Flake8
+        run: flake8 . --max-line-length=120 --exclude=venv,__pycache__,.github,init_db.py --extend-ignore=W291,W292,W293,E302,E305,E402,F401
+      - name: Tests — Pytest
+        run: pytest tests/ -v
